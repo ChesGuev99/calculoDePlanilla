@@ -116,9 +116,9 @@ create table Family_credit
 (
     id_family_credit int identity
         primary key,
-    id_regulation    int   not null
+    id_type          int   not null
         constraint Family_credit_Regulation_id_regulation_fk
-            references Regulation,
+            references Credit_type,
     amount           money not null
 )
 go
