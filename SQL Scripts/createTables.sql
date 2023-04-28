@@ -2,7 +2,8 @@ create table Organization
 (
     id_organization int identity
         primary key,
-    name            varchar(50) not null
+    name            varchar(50) not null,
+    status          bit         not null
 )
 go
 
@@ -11,7 +12,8 @@ create table Department
 (
     id_department int         not null
         primary key,
-    name          varchar(50) not null
+    name          varchar(50) not null,
+    status          bit         not null
 )
 go
 
@@ -34,7 +36,8 @@ create table Employee
         constraint Employee_Department_id_fk
             references Department,
     kids_number     int         not null,
-    is_married      bit         not null
+    is_married      bit         not null,
+    status          bit         not null
 )
 go
 
@@ -43,7 +46,8 @@ create table Regulation
 (
     id_regulation int identity
         primary key,
-    update_date   date not null
+    update_date   date not null,
+    status          bit         not null
 )
 go
 
@@ -58,7 +62,8 @@ create table Payroll
     start_date          datetime not null,
     end_date            datetime not null,
     total_employees     int      not null,
-    employer_deductions money    not null
+    employer_deductions money    not null,
+    status          bit         not null
 )
 go
 
@@ -74,7 +79,9 @@ create table Payroll_detail
         constraint Payroll_detail_Employee_id_employee_fk
             references Employee,
     net_salary         money not null,
-    employer_deduction money not null
+    employer_deduction money not null,
+    status          bit         not null
+
 )
 go
 
@@ -83,7 +90,9 @@ create table Social_charges_type
 (
     id_type int identity
         primary key,
-    ype     varchar(50) not null
+    type     varchar(50) not null,
+    status          bit         not null
+
 )
 go
 
@@ -98,7 +107,8 @@ create table Social_charges_deduction
     id_type           int   not null
         constraint Social_charges_deduction_Social_charges_type_id_type_fk
             references Social_charges_type,
-    percentage        float not null
+    percentage        float not null,
+    status          bit         not null
 )
 go
 
@@ -107,7 +117,8 @@ create table Credit_type
 (
     id_credit_type int identity
         primary key,
-    type           varchar(50) not null
+    type           varchar(50) not null,
+    status          bit         not null
 )
 go
 
@@ -119,7 +130,8 @@ create table Family_credit
     id_type          int   not null
         constraint Family_credit_Regulation_id_regulation_fk
             references Credit_type,
-    amount           money not null
+    amount           money not null,
+    status          bit         not null
 )
 go
 
@@ -133,6 +145,7 @@ create table Tax_deduction
             references Regulation,
     start_range   money not null,
     end_range     money not null,
-    percentage    float not null
+    percentage    float not null,
+    status          bit         not null
 )
 go
