@@ -3,17 +3,17 @@ create table Organization
     id_organization int identity
         primary key,
     name            varchar(50) not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
 
 create table Department
 (
-    id_department int         not null
+    id_department int    identity     not null
         primary key,
     name          varchar(50) not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
@@ -37,7 +37,7 @@ create table Employee
             references Department,
     kids_number     int         not null,
     is_married      bit         not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
@@ -47,7 +47,7 @@ create table Regulation
     id_regulation int identity
         primary key,
     update_date   date not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
@@ -63,7 +63,7 @@ create table Payroll
     end_date            datetime not null,
     total_employees     int      not null,
     employer_deductions money    not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
@@ -80,7 +80,7 @@ create table Payroll_detail
             references Employee,
     net_salary         money not null,
     employer_deduction money not null,
-    status          bit         not null
+    status          bit         not null default 1
 
 )
 go
@@ -91,7 +91,7 @@ create table Social_charges_type
     id_type int identity
         primary key,
     type     varchar(50) not null,
-    status          bit         not null
+    status          bit         not null default 1
 
 )
 go
@@ -108,7 +108,7 @@ create table Social_charges_deduction
         constraint Social_charges_deduction_Social_charges_type_id_type_fk
             references Social_charges_type,
     percentage        float not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
@@ -118,7 +118,7 @@ create table Credit_type
     id_credit_type int identity
         primary key,
     type           varchar(50) not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
@@ -131,7 +131,7 @@ create table Family_credit
         constraint Family_credit_Regulation_id_regulation_fk
             references Credit_type,
     amount           money not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go
 
@@ -146,6 +146,6 @@ create table Tax_deduction
     start_range   money not null,
     end_range     money not null,
     percentage    float not null,
-    status          bit         not null
+    status          bit         not null default 1
 )
 go

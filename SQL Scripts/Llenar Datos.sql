@@ -5,25 +5,25 @@ INSERT INTO dbo.Credit_type(type)
 VALUES ('Hijos')
 
 -- Datos Tipos Cargas Sociales
-INSERT INTO dbo.Social_charges_type(ype)
+INSERT INTO dbo.Social_charges_type(type)
 VALUES ('Obrero CCSS')
-INSERT INTO dbo.Social_charges_type(ype)
+INSERT INTO dbo.Social_charges_type(type)
 VALUES ('Obrero LPT')
-INSERT INTO dbo.Social_charges_type(ype)
+INSERT INTO dbo.Social_charges_type(type)
 VALUES ('Patrono CCSS')
-INSERT INTO dbo.Social_charges_type(ype)
+INSERT INTO dbo.Social_charges_type(type)
 VALUES ('Patrono Otras Instituciones')
-INSERT INTO dbo.Social_charges_type(ype)
+INSERT INTO dbo.Social_charges_type(type)
 VALUES ('Patrono LPT')
 
 --Datos Departamento
-insert into Department (name) values ('Recursos Humanos');
-insert into Department (name) values ('Marketing');
-insert into Department (name) values ('Ventas');
-insert into Department (name) values ('Contabilidad');
-insert into Department (name) values ('Tecnología de la Información');
-insert into Department (name) values ('Investigación y Desarrollo');
-insert into Department (name) values ('Legal');
+insert into Department (name, status) values ('Recursos Humanos',1);
+insert into Department (name, status) values ('Marketing',1);
+insert into Department (name, status) values ('Ventas',1);
+insert into Department (name, status) values ('Contabilidad',1);
+insert into Department (name, status) values ('Tecnología de la Información',1);
+insert into Department (name, status) values ('Investigación y Desarrollo',1);
+insert into Department (name, status) values ('Legal',1);
 insert into Department (name) values ('Servicio al Cliente');
 insert into Department (name) values ('Desarrollo de Negocios');
 insert into Department (name) values ('Finanzas');
@@ -43,123 +43,127 @@ insert into Department (name) values ('Innovación');
 insert into Department (name) values ('Gestión de Riesgos');
 
 -- Datos Organización
-INSERT INTO dbo.Organization (name) VALUES('Google');
-INSERT INTO dbo.Organization (name) VALUES('Apple');
-INSERT INTO dbo.Organization (name) VALUES('Microsoft');
-INSERT INTO dbo.Organization (name) VALUES('Amazon');
-INSERT INTO dbo.Organization (name) VALUES('Facebook');
-INSERT INTO dbo.Organization (name) VALUES('IBM');
-INSERT INTO dbo.Organization (name) VALUES('Cisco Systems');
-INSERT INTO dbo.Organization (name) VALUES('Intel');
-INSERT INTO dbo.Organization (name) VALUES('Oracle');
-INSERT INTO dbo.Organization (name) VALUES('Dell');
-INSERT INTO dbo.Organization (name) VALUES('HP Inc.');
-INSERT INTO dbo.Organization (name) VALUES('Samsung');
-INSERT INTO dbo.Organization (name) VALUES('Sony');
-INSERT INTO dbo.Organization (name) VALUES('LG');
-INSERT INTO dbo.Organization (name) VALUES('Panasonic');
-INSERT INTO dbo.Organization (name) VALUES('Philips');
-INSERT INTO dbo.Organization (name) VALUES('Siemens');
-INSERT INTO dbo.Organization (name) VALUES('Volkswagen');
-INSERT INTO dbo.Organization (name) VALUES('Toyota');
-INSERT INTO dbo.Organization (name) VALUES('General Motors');
-INSERT INTO dbo.Organization (name) VALUES('Ford');
-INSERT INTO dbo.Organization (name) VALUES('BMW');
-INSERT INTO dbo.Organization (name) VALUES('Audi');
-INSERT INTO dbo.Organization (name) VALUES('Mercedes-Benz');
-INSERT INTO dbo.Organization (name) VALUES('Porsche');
-INSERT INTO dbo.Organization (name) VALUES('Boeing');
-INSERT INTO dbo.Organization (name) VALUES('Airbus');
-INSERT INTO dbo.Organization (name) VALUES('Lockheed Martin');
-INSERT INTO dbo.Organization (name) VALUES('Raytheon Technologies');
-INSERT INTO dbo.Organization (name) VALUES('Northrop Grumman');
-INSERT INTO dbo.Organization (name) VALUES('General Electric');
-INSERT INTO dbo.Organization (name) VALUES('Honeywell');
-INSERT INTO dbo.Organization (name) VALUES('Procter & Gamble');
-INSERT INTO dbo.Organization (name) VALUES('Unilever');
-INSERT INTO dbo.Organization (name) VALUES('Nestle');
-INSERT INTO dbo.Organization (name) VALUES('PepsiCo');
-INSERT INTO dbo.Organization (name) VALUES('Coca-Cola');
-INSERT INTO dbo.Organization (name) VALUES('Johnson & Johnson');
-INSERT INTO dbo.Organization (name) VALUES('Pfizer');
-INSERT INTO dbo.Organization (name) VALUES('Novartis');
-INSERT INTO dbo.Organization (name) VALUES('Merck');
-INSERT INTO dbo.Organization (name) VALUES('Roche');
-INSERT INTO dbo.Organization (name) VALUES('Bristol Myers Squibb');
-INSERT INTO dbo.Organization (name) VALUES('AstraZeneca');
-INSERT INTO dbo.Organization (name) VALUES('GlaxoSmithKline');
-INSERT INTO dbo.Organization (name) VALUES('ExxonMobil');
-INSERT INTO dbo.Organization (name) VALUES('Royal Dutch Shell');
-INSERT INTO dbo.Organization (name) VALUES('BP');
-INSERT INTO dbo.Organization (name) VALUES('Chevron');
-INSERT INTO dbo.Organization (name) VALUES('Total');
-INSERT INTO dbo.Organization (name) VALUES('Eni');
-INSERT INTO dbo.Organization (name) VALUES('Gazprom');
-INSERT INTO dbo.Organization (name) VALUES('Rosneft');
-INSERT INTO dbo.Organization (name) VALUES('PetroChina');
-INSERT INTO dbo.Organization (name) VALUES('Sinopec');
-INSERT INTO dbo.Organization (name) VALUES('Alibaba Group');
-INSERT INTO dbo.Organization (name) VALUES('Tencent Holdings');
-INSERT INTO dbo.Organization (name) VALUES('Baidu');
-INSERT INTO dbo.Organization (name) VALUES('JD.com');
-INSERT INTO dbo.Organization (name) VALUES('ByteDance');
-INSERT INTO dbo.Organization (name) VALUES('Huawei');
-INSERT INTO dbo.Organization (name) VALUES('Xiaomi');
-INSERT INTO dbo.Organization (name) VALUES('Nokia');
-INSERT INTO dbo.Organization (name) VALUES('AT&T');
-INSERT INTO dbo.Organization (name) VALUES('Verizon Communications');
-INSERT INTO dbo.Organization (name) VALUES('Comcast');
-INSERT INTO dbo.Organization (name) VALUES('Charter Communications');
-INSERT INTO dbo.Organization (name) VALUES('T-Mobile US');
-INSERT INTO dbo.Organization (name) VALUES('Sprint Corporation');
-INSERT INTO dbo.Organization (name) VALUES('Deutsche Telekom');
-INSERT INTO dbo.Organization (name) VALUES('Vodafone Group');
-INSERT INTO dbo.Organization (name) VALUES('Orange S.A.');
-INSERT INTO dbo.Organization (name) VALUES('Telefonica');
-INSERT INTO dbo.Organization (name) VALUES('American Express');
-INSERT INTO dbo.Organization (name) VALUES('Visa Inc.');
-INSERT INTO dbo.Organization (name) VALUES('Mastercard');
-INSERT INTO dbo.Organization (name) VALUES('PayPal');
-INSERT INTO dbo.Organization (name) VALUES('Goldman Sachs');
-INSERT INTO dbo.Organization (name) VALUES('JPMorgan Chase');
-INSERT INTO dbo.Organization (name) VALUES('Bank of America');
-INSERT INTO dbo.Organization (name) VALUES('Wells Fargo');
-INSERT INTO dbo.Organization (name) VALUES('Citigroup');
-INSERT INTO dbo.Organization (name) VALUES('Morgan Stanley');
-INSERT INTO dbo.Organization (name) VALUES('Barclays');
-INSERT INTO dbo.Organization (name) VALUES('HSBC');
-INSERT INTO dbo.Organization (name) VALUES('Deutsche Bank');
-INSERT INTO dbo.Organization (name) VALUES('Credit Suisse');
-INSERT INTO dbo.Organization (name) VALUES('UBS Group');
-INSERT INTO dbo.Organization (name) VALUES('AXA');
-INSERT INTO dbo.Organization (name) VALUES('Allianz');
-INSERT INTO dbo.Organization (name) VALUES('Prudential');
-INSERT INTO dbo.Organization (name) VALUES('MetLife');
-INSERT INTO dbo.Organization (name) VALUES('AIG');
-INSERT INTO dbo.Organization (name) VALUES('Berkshire Hathaway');
-INSERT INTO dbo.Organization (name) VALUES('Warren Buffett');
-INSERT INTO dbo.Organization (name) VALUES('BlackRock');
-INSERT INTO dbo.Organization (name) VALUES('Vanguard Group');
-INSERT INTO dbo.Organization (name) VALUES('Fidelity Investments');
-INSERT INTO dbo.Organization (name) VALUES('TELSTAR');
+INSERT INTO dbo.Organization (name,status) VALUES('Google',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Apple'   ,1);
+INSERT INTO dbo.Organization (name,status) VALUES('Microsoft',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Amazon',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Facebook',1);
+INSERT INTO dbo.Organization (name,status) VALUES('IBM',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Cisco Systems',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Intel',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Oracle',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Dell',1);
+INSERT INTO dbo.Organization (name,status) VALUES('HP Inc.',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Samsung',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Sony',1);
+INSERT INTO dbo.Organization (name,status) VALUES('LG',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Panasonic',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Philips',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Siemens',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Volkswagen',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Toyota',1);
+INSERT INTO dbo.Organization (name,status) VALUES('General Motors',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Ford',1);
+INSERT INTO dbo.Organization (name,status) VALUES('BMW',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Audi',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Mercedes-Benz',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Porsche',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Boeing',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Airbus',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Lockheed Martin',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Raytheon Technologies',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Northrop Grumman',1);
+INSERT INTO dbo.Organization (name,status) VALUES('General Electric',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Honeywell',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Procter & Gamble',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Unilever',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Nestle',1);
+INSERT INTO dbo.Organization (name,status) VALUES('PepsiCo',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Coca-Cola',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Johnson & Johnson',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Pfizer',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Novartis',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Merck',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Roche',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Bristol Myers Squibb',1);
+INSERT INTO dbo.Organization (name,status) VALUES('AstraZeneca',1);
+INSERT INTO dbo.Organization (name,status) VALUES('GlaxoSmithKline',1);
+INSERT INTO dbo.Organization (name,status) VALUES('ExxonMobil',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Royal Dutch Shell',1);
+INSERT INTO dbo.Organization (name,status) VALUES('BP',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Chevron',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Total',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Eni',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Gazprom',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Rosneft',1);
+INSERT INTO dbo.Organization (name,status) VALUES('PetroChina',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Sinopec',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Alibaba Group',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Tencent Holdings',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Baidu',1);
+INSERT INTO dbo.Organization (name,status) VALUES('JD.com',1);
+INSERT INTO dbo.Organization (name,status) VALUES('ByteDance',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Huawei',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Xiaomi',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Nokia',1);
+INSERT INTO dbo.Organization (name,status) VALUES('AT&T',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Verizon Communications',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Comcast',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Charter Communications',1);
+INSERT INTO dbo.Organization (name,status) VALUES('T-Mobile US',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Sprint Corporation',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Deutsche Telekom',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Vodafone Group',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Orange S.A.',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Telefonica',1);
+INSERT INTO dbo.Organization (name,status) VALUES('American Express',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Visa Inc.',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Mastercard',1);
+INSERT INTO dbo.Organization (name,status) VALUES('PayPal',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Goldman Sachs',1);
+INSERT INTO dbo.Organization (name,status) VALUES('JPMorgan Chase',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Bank of America',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Wells Fargo',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Citigroup',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Morgan Stanley',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Barclays',1);
+INSERT INTO dbo.Organization (name,status) VALUES('HSBC',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Deutsche Bank',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Credit Suisse',1);
+INSERT INTO dbo.Organization (name,status) VALUES('UBS Group',1);
+INSERT INTO dbo.Organization (name,status) VALUES('AXA',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Allianz',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Prudential',1);
+INSERT INTO dbo.Organization (name,status) VALUES('MetLife',1);
+INSERT INTO dbo.Organization (name,status) VALUES('AIG',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Berkshire Hathaway',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Warren Buffett',1);
+INSERT INTO dbo.Organization (name,status) VALUES('BlackRock',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Vanguard Group',1);
+INSERT INTO dbo.Organization (name,status) VALUES('Fidelity Investments',1);
+INSERT INTO dbo.Organization (name,status) VALUES('TELSTAR',1);
 
 -- Datos regulaciones
-INSERT INTO dbo.Regulation (update_date) VALUES('2022/12/31')
+INSERT INTO dbo.Regulation (update_date,status) VALUES('2022/12/31',1)
 
 -- Datos Impuestos
-INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage) VALUES(1,0,941000,0)
-INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage) VALUES(1,941000,1381000,0.1)
-INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage) VALUES(1,1381000,2243000,0.15)
-INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage) VALUES(1,2243000,4845000,0.2)
-INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage) VALUES(1,4845000,50000000,0.25)
+INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage,status) VALUES(1,0,941000,0           ,1)
+INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage,status) VALUES(1,941000,1381000,0.1   ,1)
+INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage,status) VALUES(1,1381000,2243000,0.15 ,1)
+INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage,status) VALUES(1,2243000,4845000,0.2  ,1)
+INSERT INTO dbo.Tax_deduction (id_regulation,start_range,end_range,percentage,status) VALUES(1,4845000,50000000,0.25,1)
 
 -- Datos Cargas Sociales
-INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage) VALUES(1,1,0.0967)
-INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage) VALUES(1,2,0.01)
-INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage) VALUES(1,3,0.1467)
-INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage) VALUES(1,4,0.0725)
-INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage) VALUES(1,5,0.0475)
+INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status) VALUES(1,1,0.0967,1)
+INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status) VALUES(1,2,0.01  ,1 )
+INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status) VALUES(1,3,0.1467,1)
+INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status) VALUES(1,4,0.0725,1)
+INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status) VALUES(1,5,0.0475,1)
 
 -- Datos Creditos Familiares
-INSERT INTO dbo.Family_credit(id_regulation,id_type,amount) VALUES(1,1,2650)
-INSERT INTO dbo.Family_credit(id_regulation,id_type,amount) VALUES(1,2,1750)
+INSERT INTO dbo.Family_credit(id_type,amount,status) VALUES(1,2650,1)
+INSERT INTO dbo.Family_credit(id_type,amount,status) VALUES(2,1750,1)
+
+  insert into dbo.Employee (idn, name, lastname1, lastname2, gross_salary, birthdate, id_organization,
+                            id_department, kids_number, is_married, status)
+                    VALUES (100010209,"SARA","CHACON","PAUT",11658757.0,8/12/2005 01:13,6.0,7.0,1,true,1)
