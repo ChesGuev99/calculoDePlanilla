@@ -21,28 +21,28 @@ insert into Department (name, status) values ('Recursos Humanos',1);
 insert into Department (name, status) values ('Marketing',1);
 insert into Department (name, status) values ('Ventas',1);
 insert into Department (name, status) values ('Contabilidad',1);
-insert into Department (name, status) values ('Tecnolog韆 de la Informaci髇',1);
-insert into Department (name, status) values ('Investigaci髇 y Desarrollo',1);
+insert into Department (name, status) values ('Tecnolog铆a de la Informaci贸n',1);
+insert into Department (name, status) values ('Investigaci贸n y Desarrollo',1);
 insert into Department (name, status) values ('Legal',1);
 insert into Department (name) values ('Servicio al Cliente');
 insert into Department (name) values ('Desarrollo de Negocios');
 insert into Department (name) values ('Finanzas');
 insert into Department (name) values ('Operaciones');
-insert into Department (name) values ('Producci髇');
-insert into Department (name) values ('Administraci髇');
-insert into Department (name) values ('Relaciones P鷅licas');
+insert into Department (name) values ('Producci贸n');
+insert into Department (name) values ('Administraci贸n');
+insert into Department (name) values ('Relaciones P煤blicas');
 insert into Department (name) values ('Aseguramiento de Calidad');
 insert into Department (name) values ('Compras');
-insert into Department (name) values ('Log韘tica');
+insert into Department (name) values ('Log铆stica');
 insert into Department (name) values ('Cadena de Suministro');
-insert into Department (name) values ('Gesti髇 de Instalaciones');
-insert into Department (name) values ('Gesti髇 de Proyectos');
+insert into Department (name) values ('Gesti贸n de Instalaciones');
+insert into Department (name) values ('Gesti贸n de Proyectos');
 insert into Department (name) values ('Comunicaciones');
 insert into Department (name) values ('Entrenamiento y Desarrollo');
-insert into Department (name) values ('Innovaci髇');
-insert into Department (name) values ('Gesti髇 de Riesgos');
+insert into Department (name) values ('Innovaci贸n');
+insert into Department (name) values ('Gesti贸n de Riesgos');
 
--- Datos Organizaci髇
+-- Datos Organizaci贸n
 INSERT INTO dbo.Organization (name,status) VALUES('Google',1);
 INSERT INTO dbo.Organization (name,status) VALUES('Apple'   ,1);
 INSERT INTO dbo.Organization (name,status) VALUES('Microsoft',1);
@@ -161,9 +161,7 @@ INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status
 INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status) VALUES(1,5,0.0475,1)
 
 -- Datos Creditos Familiares
-INSERT INTO dbo.Family_credit(id_type,amount,status) VALUES(1,2650,1)
-INSERT INTO dbo.Family_credit(id_type,amount,status) VALUES(2,1750,1)
+INSERT INTO dbo.Family_credit(id_type,amount,status,id_regulation) VALUES(1,2650,1,1)
+INSERT INTO dbo.Family_credit(id_type,amount,status,id_regulation) VALUES(2,1750,1,1)
 
-  insert into dbo.Employee (idn, name, lastname1, lastname2, gross_salary, birthdate, id_organization,
-                            id_department, kids_number, is_married, status)
-                    VALUES (100010209,"SARA","CHACON","PAUT",11658757.0,8/12/2005 01:13,6.0,7.0,1,true,1)
+

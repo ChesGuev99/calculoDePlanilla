@@ -23,7 +23,7 @@ public class GuiProyecto {
         rs.next();
         int all_employees = rs.getInt(1);
         
-        stmt = connection.prepareStatement("SELECT idn,gross_salary,kids_number,is_married FROM Employee");
+        stmt = connection.prepareStatement("SELECT idn FROM Employee");
         rs = stmt.executeQuery();
         rs.next();
         CallableStatement proc = connection.prepareCall("{call start_payroll(?,?)}");
@@ -50,14 +50,10 @@ public class GuiProyecto {
         
         connection.setAutoCommit(false);
         
-        proc = connection.prepareCall("{call calculate_deductions_by_employee(?,?,?,?,?)}");
+        proc = connection.prepareCall("{call calculate_deductions_by_employee(?)}");
         
         for (int i = 0;i < all_employees;i++){
             proc.setInt(1,rs.getInt(1));
-            proc.setInt(2,rs.getInt(2));
-            proc.setInt(3,rs.getInt(3));
-            proc.setInt(4,rs.getInt(4));
-            proc.setInt(5,1);
             rs.next();
             
             proc.addBatch();
