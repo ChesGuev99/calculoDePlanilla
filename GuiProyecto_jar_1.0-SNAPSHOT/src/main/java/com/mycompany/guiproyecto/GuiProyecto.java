@@ -73,7 +73,7 @@ public class GuiProyecto {
         
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         
         //Se debe modificar esto para el login correcto de la base de datos
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
