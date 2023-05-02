@@ -161,6 +161,7 @@ INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status
 INSERT INTO dbo.Social_charges_deduction(id_regulation,id_type,percentage,status) VALUES(1,5,0.0475,1)
 
 -- Datos Creditos Familiares
-INSERT INTO dbo.Family_credit(id_type,amount,status) VALUES(1,2650,1)
-INSERT INTO dbo.Family_credit(id_type,amount,status) VALUES(2,1750,1)
+INSERT INTO dbo.Family_credit(id_type,amount,status,id_regulation) VALUES(1,2650,1,1)
+INSERT INTO dbo.Family_credit(id_type,amount,status,id_regulation) VALUES(2,1750,1,1)
+
 
