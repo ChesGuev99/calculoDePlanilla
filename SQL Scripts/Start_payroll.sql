@@ -1,4 +1,4 @@
-CREATE PROCEDURE start_payroll(
+ALTER PROCEDURE start_payroll(
 	@start_date datetime,
 	@end_date datetime)
 AS

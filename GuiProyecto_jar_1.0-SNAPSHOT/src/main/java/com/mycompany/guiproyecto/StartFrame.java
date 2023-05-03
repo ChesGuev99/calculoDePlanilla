@@ -4,6 +4,8 @@
  */
 package com.mycompany.guiproyecto;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
 import java.sql.*;
 import java.time.LocalDate;
@@ -168,14 +170,57 @@ public class StartFrame extends javax.swing.JFrame {
             CallableStatement calable = connection.prepareCall("{call getDetailByID(?)}");
             calable.setInt(1, Integer.parseInt(busqText.getText()));
             ResultSet rs = calable.executeQuery();
-            while(rs.next()){
-                System.out.println("ID: " + rs.getInt("id"));
-                System.out.println("Nombre: " + rs.getString("nombre"));
-                System.out.println("Apellido: " + rs.getString("apellido"));
-                System.out.println("Salario: " + rs.getDouble("salario"));
-                System.out.println("Impuesto: " + rs.getDouble("impuesto"));
-                System.out.println("Salario Neto: " + rs.getDouble("salario_neto"));
+
+            // create a new JFrame
+            JFrame resultFrame = new JFrame("Resultados de la búsqueda");
+
+            // create a new JTable
+            JTable resultTable = new JTable();
+
+            // create a new DefaultTableModel
+            DefaultTableModel model = new DefaultTableModel();
+
+            // add columns to the model
+            model.addColumn("Elemento");
+            model.addColumn("Valor");
+
+
+            // populate the model with data from the ResultSet
+            while (rs.next()) {
+                model.addRow(new Object[]{"Identificación",rs.getString("idn")});
+                model.addRow(new Object[]{"Nombre Completo" , rs.getString("name") + " " + rs.getString("lastname1") + " " + rs.getString("lastname2")});
+                model.addRow(new Object[]{"Salario Bruto", rs.getBigDecimal("gross_salary")});
+                model.addRow(new Object[]{"Créditos Familiares", rs.getDouble("family_credit")});
+                model.addRow(new Object[]{"Cargas Sociales", rs.getBigDecimal("social_charges")});
+                model.addRow(new Object[]{"Impuesto sobre la Renta", rs.getBigDecimal("rent_taxes")});
+                model.addRow(new Object[]{"Salario Neto", rs.getBigDecimal("net_salary")});
+                model.addRow(new Object[]{"Deducciones Patronales", rs.getBigDecimal("employer_deduction")});
             }
+
+            // set the model on the table
+            resultTable.setModel(model);
+
+            // add the table to a scroll pane
+            JScrollPane scrollPane = new JScrollPane(resultTable);
+
+            // add the scroll pane to the frame
+            resultFrame.getContentPane().add(scrollPane);
+
+            // set the size and show the frame
+            resultFrame.setSize(500, 200);
+            resultFrame.setVisible(true);
+
+            /*while(rs.next()){
+                System.out.println("IDN: " + rs.getInt("idn"));
+                System.out.println("Nombre: " + rs.getString("name"));
+                System.out.println("Apellidos: " + rs.getString("lastname1") + " " + rs.getString("lastname2"));
+                System.out.println("Salario Bruto: " + rs.getBigDecimal("gross_salary"));
+                System.out.println("Salario Neto: " + rs.getBigDecimal("net_salary"));
+                System.out.println("Deducciones patronales: " + rs.getBigDecimal("employer_deduction"));
+                System.out.println("Creditos Familiares: " + rs.getBigDecimal("family_credit"));
+                System.out.println("Cargas Sociales: " + rs.getBigDecimal("social_charges"));
+                System.out.println("Impuestos de renta: " + rs.getBigDecimal("rent_taxes"));
+            }*/
         }
     }//GEN-LAST:event_busqButtonActionPerformed
 
@@ -228,10 +273,10 @@ public class StartFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton busqButton;
+    private javax.swing.JButton busqButton, closeBtn;
     private javax.swing.JTextField busqText;
     private javax.swing.JButton cImpButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1, idnLabel, nameLabel, grossSalaryLabel, netSalaryLabel, employerDeductionLabel, familyCreditLabel, socialChargesLabel, rentTaxesLabel;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

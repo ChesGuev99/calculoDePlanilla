@@ -165,3 +165,7 @@ INSERT INTO dbo.Family_credit(id_type,amount,status,id_regulation) VALUES(1,2650
 INSERT INTO dbo.Family_credit(id_type,amount,status,id_regulation) VALUES(2,1750,1,1)
 
 
+INSERT INTO dbo.Employee(idn, name, lastname1, lastname2, gross_salary, birthdate, id_organization, id_department, kids_number, is_married)
+VALUES('12345678', 'Juan', 'Perez', 'Garcia', 1000000, '1990/01/01', 1, 1, 3, 1);
+
+Select * from dbo.Payroll_detail

@@ -70,13 +70,12 @@ BEGIN
 			gross_salary * (SELECT S.percentage FROM dbo.Social_charges_deduction AS S WHERE S.id_type = 5) AS deducciones_patrono_LPT
 			FROM dbo.Employee
 			WHERE id_employee BETWEEN @start AND @end
-			SELECT * FROM #Lote
-			INSERT INTO dbo.Payroll_detail (id_payroll, id_employee,net_salary,employer_deduction)
+			INSERT INTO dbo.Payroll_detail (id_payroll, id_employee,net_salary,employer_deduction, family_credit, social_charges, rent_taxes)
 			SELECT IDENT_CURRENT('Payroll'),E.id_employee,
 			L.gross_salary - L.impuesto + L.credito_conyuge + L.credito_hijos - L.deduccion_obrero_ccss - L.deduccion_obrero_LPT,
 			L.deduccion_patrono_ccss + L.deduccion_patrono_otras_instituciones + L.deduccion_patrono_LPT
+			       ,L.credito_conyuge+L.credito_hijos , L.deduccion_obrero_ccss + L.deduccion_obrero_LPT, L.impuesto
 			FROM #Lote AS L INNER JOIN Employee AS E ON L.idn = E.idn AND E.id_employee BETWEEN @start AND @end
-			
 			
 			SET @start = @end + 1
 			SET @end = @start + 99999
@@ -110,5 +109,6 @@ END
 
 
 
-
+--EXEC start_payroll '2019-01-01', '2019-01-31'
 EXEC calculate_deductions_by_employee
+SELECT * FROM dbo.Payroll_detail

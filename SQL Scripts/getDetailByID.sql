@@ -1,6 +1,6 @@
 -- get detail by id
 
-CREATE PROCEDURE [dbo].[getDetailByID](
+ALTER PROCEDURE [dbo].[getDetailByID](
     @idn int
 ) AS
     BEGIN
@@ -18,7 +18,7 @@ CREATE PROCEDURE [dbo].[getDetailByID](
                 SET @id_employee = (SELECT id_employee FROM Employee WHERE idn = @idn)
                 BEGIN
                     SET @id_payroll = (SELECT MAX(id_payroll) FROM Payroll)
-                    SELECT * FROM [dbo].[Payroll_detail] WHERE id_payroll = @id_payroll AND id_employee = @id_employee
+                    SELECT idn, name, lastname1, lastname2, gross_salary, net_salary, employer_deduction, family_credit, social_charges, rent_taxes FROM [dbo].[Payroll_detail] INNER JOIN Employee E on E.id_employee = Payroll_detail.id_employee WHERE id_payroll = @id_payroll AND Payroll_detail.id_employee = @id_employee
                 END
             END
         ELSE
