@@ -122,9 +122,33 @@ public class StartFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cImpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cImpButtonActionPerformed
-        // TODO add your handling code here:
-        System.out.println("calling Calcular impuestos stored procedure");
-        //CallableStatement calable = connection.prepareCall(callString);
+        try {
+            CallableStatement proc = connection.prepareCall("{call start_payroll(?,?)}");
+            LocalDate today = LocalDate.now();
+            
+            // Obtener el primer día del mes actual
+            LocalDate firstDayOfMonth = today.withDayOfMonth(1);
+            
+            // Obtener el último día del mes actual
+            LocalDate lastDayOfMonth = today.withDayOfMonth(today.lengthOfMonth());
+            
+            // Formatear las fechas en formato aaaa/mm/dd
+            
+            
+            Date start = Date.valueOf(firstDayOfMonth);
+            Date end = Date.valueOf(lastDayOfMonth);
+            
+            proc.setDate(1,start);
+            proc.setDate(2,end);
+            
+            proc.execute();
+            
+            
+            proc = connection.prepareCall("{call calculate_deductions}");
+            proc.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_cImpButtonActionPerformed
 
