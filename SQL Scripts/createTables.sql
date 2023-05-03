@@ -80,6 +80,9 @@ create table Payroll_detail
             references Employee,
     net_salary         money not null,
     employer_deduction money not null,
+    family_credit      money not null,
+    social_charges     money not null,
+    rent_taxes         money not null,
     status          bit         not null default 1
 
 )
@@ -127,12 +130,18 @@ create table Family_credit
 (
     id_family_credit int identity
         primary key,
-    id_type          int   not null
+    id_type          int           not null
         constraint Family_credit_Regulation_id_regulation_fk
             references Credit_type,
-    amount           money not null,
-    status          bit         not null default 1
+    amount           money         not null,
+    id_regulation    int           not null
+        constraint Family_credit_Regulation_id_regulation_fk_2
+            references Regulation,
+    status           bit default 1 not null
 )
+go
+
+
 go
 
 
