@@ -1,4 +1,4 @@
-USE [taxesDB]
+USE [TaxesBD]
 GO
 /****** Object:  StoredProcedure [dbo].[calculate_deductions_by_employee]    Script Date: 2/5/2023 19:34:27 ******/
 SET ANSI_NULLS ON
@@ -70,7 +70,7 @@ BEGIN
 			gross_salary * (SELECT S.percentage FROM dbo.Social_charges_deduction AS S WHERE S.id_type = 5) AS deducciones_patrono_LPT
 			FROM dbo.Employee
 			WHERE id_employee BETWEEN @start AND @end
-
+			SELECT * FROM #Lote
 			INSERT INTO dbo.Payroll_detail (id_payroll, id_employee,net_salary,employer_deduction)
 			SELECT IDENT_CURRENT('Payroll'),E.id_employee,
 			L.gross_salary - L.impuesto + L.credito_conyuge + L.credito_hijos - L.deduccion_obrero_ccss - L.deduccion_obrero_LPT,
@@ -107,3 +107,8 @@ BEGIN
 			COMMIT TRANSACTION Calculo
 	END CATCH
 END
+
+
+
+
+EXEC calculate_deductions_by_employee

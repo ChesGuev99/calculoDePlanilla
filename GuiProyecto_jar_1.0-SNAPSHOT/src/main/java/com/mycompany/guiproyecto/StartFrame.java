@@ -5,10 +5,10 @@
 package com.mycompany.guiproyecto;
 
 import java.awt.Color;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -144,7 +144,7 @@ public class StartFrame extends javax.swing.JFrame {
             proc.execute();
             
             
-            proc = connection.prepareCall("{call calculate_deductions}");
+            proc = connection.prepareCall("{call calculate_deductions_by_employee}");
             proc.execute();
         } catch (SQLException ex) {
             Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
