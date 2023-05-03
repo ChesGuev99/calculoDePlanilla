@@ -51,7 +51,8 @@ public class GuiProyecto {
         connection.setAutoCommit(false);
         
         proc = connection.prepareCall("{call calculate_deductions_by_employee(?)}");
-        
+
+
         for (int i = 0;i < all_employees;i++){
             proc.setInt(1,rs.getInt(1));
             rs.next();
@@ -73,11 +74,15 @@ public class GuiProyecto {
         
         //Se debe modificar esto para el login correcto de la base de datos
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=taxesDB;encrypt=true;trustServerCertificate=true;user=Jenaro;password=Jema0529";
+        String connectionUrl = "jdbc:sqlserver://ChesPavil;encrypt=false";
+        String user = "datagrip";
+        String pass = "1234";
+//        String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=taxesDB;encrypt=true;trustServerCertificate=true;user=Jenaro;password=Jema0529";
         Connection connection ;
         try {
             //se conecta a la BD
-            connection = DriverManager.getConnection(connectionUrl);
+            connection = DriverManager.getConnection(connectionUrl, user, pass);
+//            connection = DriverManager.getConnection(connectionUrl);
             System.out.println("Connection" + connection.isValid(10));
             
             calcular_Deducciones(connection);

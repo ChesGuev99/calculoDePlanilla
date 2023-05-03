@@ -5,7 +5,10 @@
 package com.mycompany.guiproyecto;
 
 import java.awt.Color;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -69,7 +72,11 @@ public class StartFrame extends javax.swing.JFrame {
         busqButton.setText("Buscar");
         busqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                busqButtonActionPerformed(evt);
+                try {
+                    busqButtonActionPerformed(evt);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -125,10 +132,27 @@ public class StartFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_busqTextActionPerformed
 
-    private void busqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busqButtonActionPerformed
+    private void busqButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_busqButtonActionPerformed
         // TODO add your handling code here:
         
         System.out.println("calling Buscar Por ID stored procedure, with arg: " + busqText.getText());
+        // check if the text field is empty or if it not a number
+        if(busqText.getText().isEmpty() ||  !busqText.getText().matches("[0-9]+") ){
+            System.out.println("No se ingreso un ID valido");
+        }
+        else{
+            CallableStatement calable = connection.prepareCall("{call getDetailByID(?)}");
+            calable.setInt(1, Integer.parseInt(busqText.getText()));
+            ResultSet rs = calable.executeQuery();
+            while(rs.next()){
+                System.out.println("ID: " + rs.getInt("id"));
+                System.out.println("Nombre: " + rs.getString("nombre"));
+                System.out.println("Apellido: " + rs.getString("apellido"));
+                System.out.println("Salario: " + rs.getDouble("salario"));
+                System.out.println("Impuesto: " + rs.getDouble("impuesto"));
+                System.out.println("Salario Neto: " + rs.getDouble("salario_neto"));
+            }
+        }
     }//GEN-LAST:event_busqButtonActionPerformed
 
     private void busqTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_busqTextFocusGained
