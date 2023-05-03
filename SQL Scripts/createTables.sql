@@ -158,3 +158,10 @@ create table Tax_deduction
     status          bit         not null default 1
 )
 go
+
+DELETE FROM Payroll
+                DBCC CHECKIDENT ('Payroll', RESEED, 0);
+DELETE FROM Employee
+                DBCC CHECKIDENT ('Employee', RESEED, 0);
+DELETE FROM Payroll_detail
+                DBCC CHECKIDENT ('Payroll_detail', RESEED, 0);
